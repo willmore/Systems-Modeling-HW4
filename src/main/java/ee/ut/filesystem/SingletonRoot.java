@@ -12,13 +12,19 @@ import java.util.List;
  *
  */
 public class SingletonRoot {
-	private static AbstractFile root = Root.getInstance();
+	
+	//Lazy loaded
+	private static AbstractFile root;
+	
+	public static AbstractFile getRoot() {
+		if (root == null) {
+			root = Root.getInstance();
+		}
+		return root;
+	}
 	
 	protected SingletonRoot() {		}
 	
-	public static AbstractFile getRoot(){
-		return root;
-	}
 	
 	/**
 	 * Traverse the file-tree (pointed by afile) using Visitor v
@@ -35,7 +41,7 @@ public class SingletonRoot {
 	 * @param v
 	 */
 	public static void traverse(Visitor v){
-		traverse(root, v);
+		traverse(getRoot(), v);
 	}
 	
 	/**
@@ -48,6 +54,7 @@ public class SingletonRoot {
 		
 		traverse(v);
 		
+		//map Files to String (file name)
 		List<String> out = new ArrayList<String>();
 		for (AbstractFile f : v.getAbstractFileArray().getAbstractFile()) {
 			out.add(f.getName());
@@ -62,7 +69,7 @@ public class SingletonRoot {
 	 * @return
 	 */
 	public static List<String> findAll(String expr){
-		return findAll(root, expr);
+		return findAll(getRoot(), expr);
 	}
 	
 	/**
@@ -83,6 +90,7 @@ public class SingletonRoot {
 	public static List<String> findAllJava(AbstractFile file) {
 		return findAll(file, ".*\\.java");
 	}
+	
 	
 	/**
 	 * Return the number of files found in the file-tree pointed by root

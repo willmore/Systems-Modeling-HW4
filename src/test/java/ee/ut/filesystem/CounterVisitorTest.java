@@ -26,13 +26,13 @@ public class CounterVisitorTest {
 			visitor.setExtensionFilter(new ExtensionFilter(extension));
 		}
 		
-		dir.accept(visitor);
+		SingletonRoot.traverse(dir, visitor);
 		visitor.getFileCounter();
 		
 		System.out.println("Directory: " + dir.getName());
-		System.out.println("Extension Filter: " + visitor.getExtensionFilter() != null ?
-																visitor.getExtensionFilter() :
-																"[NONE]");
+		System.out.println("Extension Filter: " + (visitor.getExtensionFilter() != null ?
+																visitor.getExtensionFilter().getExtension() :
+																"[NONE]"));
 		
 		System.out.println("File count: " + visitor.getFileCounter());
 	}

@@ -1,0 +1,44 @@
+University of Tartu
+Faculty of Mathematics and Computer Science
+Software Engineering
+Systems Modeling
+
+Team Members
+Carlos Paniagua B06327
+Radomir Sebek B06334
+Chris Willmore B06338
+
+Homework 4
+
+FileSystem
+Fujaba: FileSystem.cr
+
+SummarizeFileSizeVisitor prints the name of directories and regular files, and the size of regular files.
+
+See SingletonRoot.java for requested methods that utilize visitors and singleton Root. 
+
+For the bonus point, we added an optional ExtensionFilter to CounterVisitor.
+
+We were a bit confused on the requirement to implement a combination of findAll(extension) and countFiles()
+to create a method to count all java files. We assumed that our ExtensionFilter implementation satisfies this requirement.
+Please see this working by running CounterVisitTest and entering "java" when prompted for the extension.
+
+For interactive tests demonstrating visitors (and bonus) please execute:
+SearchVisitorTest.java
+SummarizeFileSizeVisitorTest.java
+CounterVisitTest.java
+
+-----------------------
+MauMau
+Fujaba: MauMau.ctr
+
+Case 1: Dealer deals 2 cards to everyone.
+Case 2: Playing a 7 to force next player to draw a card.
+Case 3: Playing a Jack and selecting a new suit. We implemented choosing a suit and playing the Jack as two discrete steps.
+Case 4: Playing an 8 to forcing next player to draw.
+Case 5: Playing a normal card.
+
+For unit tests execute MauMauAllTests.java.
+
+Note: We did not implement many error checks, as the scenarios did not require them. 
+For example, checking that the suit or number of a card placed on the open deck is not enforced.
